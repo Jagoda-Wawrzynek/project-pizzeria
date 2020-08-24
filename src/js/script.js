@@ -80,7 +80,7 @@
     initAccordion(){
       const thisProduct = this;
       /* find the clickable trigger (the element that should react to clicking) */
-      const clickedElement = thisProduct.accordionTrigger;
+      const clickedElement = thisProduct.element;
       /* START: click event listener to trigger */
       clickedElement.addEventListener('click', function (event) {
         //console.log('clicked', clickedElement);
