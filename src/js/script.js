@@ -334,7 +334,6 @@
       /*add generatedDOM to thisCart.dom.productList*/
       thisCart.dom.productList.appendChild(generatedDOM);
       //console.log('thisCart products', thisCart.products);
-      thisCart.update();
     }
   }
 
