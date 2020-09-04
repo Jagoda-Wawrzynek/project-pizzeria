@@ -1,6 +1,6 @@
+import {Product} from './components/Product.js';
+import {Cart} from './components/Cart.js';
 import {select, settings} from './settings.js';
-import Product from './components/Product.js';
-import Cart from './components/Cart.js';
 
 /* global Handlebars, utils, dataSource */ // eslint-disable-line no-unused-vars
 
