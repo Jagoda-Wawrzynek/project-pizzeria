@@ -1,6 +1,3 @@
-//import {templates, select} from '../settings.js';
-//import {AmountWidget} from './AmountWidget.js';
-
 export class BaseWidget{
   constructor(wrapperElement, initialValue){
     const thisWidget = this;
@@ -42,7 +39,7 @@ export class BaseWidget{
   renderValue(){
     const thisWidget = this;
 
-    console.log('widget value', thisWidget.value);
+    thisWidget.dom.wrapper.innerHTML = thisWidget.value;
   }
 
   announce(){
