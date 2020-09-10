@@ -56,12 +56,12 @@ const app = {
     for(let page of thisApp.pages) {
       page.classList.toggle(classNames.pages.active, page.id == pageId);
     }
-    console.log('newPage', thisApp.pages);
+    //console.log('newPage', thisApp.pages);
     /*add class "active" to matching links, remove from non-matching*/
     for(let link of thisApp.navLinks) {
       link.classList.toggle(classNames.nav.active, link.getAttribute('href') == '#' + pageId);
     }
-    console.log('newLink', thisApp.navLinks);
+    //console.log('newLink', thisApp.navLinks);
   },
 
   initMenu: function(){
@@ -91,7 +91,7 @@ const app = {
         thisApp.initMenu();
         
       });
-    console.log('thisApp.data', JSON.stringify(thisApp.data));
+    //console.log('thisApp.data', JSON.stringify(thisApp.data));
   },
 
   initCart: function(){
