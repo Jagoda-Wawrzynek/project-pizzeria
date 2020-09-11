@@ -206,10 +206,10 @@
   "event": [
     {
       "id": 1,
-      "date": "2020-09-10",
+      "date": "2020-09-11",
       "hour": "12:30",
       "table": 1,
-      "repeat": false,
+      "repeat": "daily",
       "duration": 4,
       "ppl": 3,
       "starters": []

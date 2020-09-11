@@ -38,6 +38,7 @@ export class Booking{
     thisBooking.dom.wrapper.addEventListener('updated', function(){
       thisBooking.updateDOM();
     });
+    thisBooking.reservation();
   }
 
   getData(){
@@ -56,7 +57,7 @@ export class Booking{
       eventsRepeat: settings.db.repeatParam + '&' + utils.queryParams(endDate),
     };
   
-    console.log('getData params', params);
+    //console.log('getData params', params);
 
     const urls = {
       booking: settings.db.url + '/' + settings.db.booking + '?' + params.booking,
@@ -64,7 +65,7 @@ export class Booking{
       eventsRepeat: settings.db.url + '/' + settings.db.event + '?' + params.eventsRepeat,
     };
     
-    console.log('getData urls', urls);
+    //console.log('getData urls', urls);
 
     Promise.all([
       fetch(urls.booking),
@@ -131,6 +132,24 @@ export class Booking{
 
       console.log('thisBooking.booked', thisBooking.booked);
       console.log('i', i);
+    }
+  }
+
+  reservation(){
+    const thisBooking = this;
+
+    for(let tableReservation of thisBooking.dom.tables) {
+      console.log('tableReservation', tableReservation);
+
+      tableReservation.addEventListener('click', function() {
+        if(tableReservation.classList.contains(classNames.booking.tableBooked)) {
+          alert('This table is already reserved! Choose a different table.');
+        } else {
+          tableReservation.classList.add(classNames.booking.tableBooked);
+          alert('Table was booked. Thank you and see you soon!');
+        }
+      });
+
     }
   }
 
