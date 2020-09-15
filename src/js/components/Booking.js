@@ -150,11 +150,12 @@ export class Booking{
         event.preventDefault();
         if(tableReservation.classList.contains(classNames.booking.tableBooked)) {
           alert('This table is already reserved! Choose a different table.');
+          
         } else {
           tableReservation.classList.add(classNames.booking.tableBooked);
           alert('Table was booked. Thank you and see you soon!');
           thisBooking.tableId = tableReservation.getAttribute('data-table');
-          
+          console.log('tableReservation',thisBooking.tableId);
         }
       });
 
