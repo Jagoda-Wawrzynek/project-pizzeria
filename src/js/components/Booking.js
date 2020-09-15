@@ -25,6 +25,7 @@ export class Booking{
     thisBooking.dom.datePicker = thisBooking.dom.wrapper.querySelector(select.widgets.datePicker.wrapper);
     thisBooking.dom.hourPicker = thisBooking.dom.wrapper.querySelector(select.widgets.hourPicker.wrapper);
     thisBooking.dom.tables = thisBooking.dom.wrapper.querySelectorAll(select.booking.tables);
+    thisBooking.dom.form = thisBooking.dom.wrapper.querySelector(select.booking.form);
   }
 
   initWidgets(){
@@ -39,10 +40,11 @@ export class Booking{
       thisBooking.updateDOM();
     });
     thisBooking.reservation();
-    thisBooking.dom.form.addEventListener('submit', function (event) {
-      event.preventDefault();
-      thisBooking.sendReservation();
-    });
+    //thisBooking.dom.form.addEventListener('submit', function (event) {
+    //event.preventDefault();
+    //thisBooking.sendReservation();
+    //});
+    console.log(thisBooking.dom.form);
   }
 
   getData(){
@@ -172,7 +174,7 @@ export class Booking{
       duration: thisBooking.hoursAmount.value
 
     };
-    console.log('payload.hour', payload.hour);
+    console.log('payload.hour', payload);
     
     const options = {
       method: 'POST',
@@ -188,6 +190,7 @@ export class Booking{
       .then(function (parsedResponse) {
         console.log('parsedResponse', parsedResponse);
         thisBooking.makeBooked(payload.date, payload.hour, payload.duration, payload.table);
+        
         thisBooking.updateDOM();
       });
   }
@@ -210,6 +213,6 @@ export class Booking{
         table.classList.remove(classNames.booking.tableBooked);
       }
     }
-    console.log('AddReservation',thisBooking.booked[thisBooking.date]);
+    //console.log('AddReservation',thisBooking.booked[thisBooking.date]);
   }
 }
