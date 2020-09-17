@@ -70,6 +70,11 @@ export const select = {
   },
   nav: {
     links: '.main-nav a',
+    homeLinks: '.home-nav a',
+  },
+  carousel: {
+    slide: '.slide',
+    dot: '.dot',
   },
 };
 
@@ -91,6 +96,7 @@ export const classNames = {
   pages: {
     active: 'active',
   },
+  
 };
 
 export const settings = {

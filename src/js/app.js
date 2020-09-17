@@ -13,6 +13,7 @@ const app = {
 
     thisApp.pages = Array.from(document.querySelector(select.containerOf.pages).children);
     thisApp.navLinks = Array.from(document.querySelectorAll(select.nav.links));
+    thisApp.navHomeLinks = Array.from(document.querySelectorAll(select.nav.homeLinks));
 
     //thisApp.activatePage(thisApp.pages[0].id);
     let pagesMatchingHash = [];
@@ -47,6 +48,19 @@ const app = {
         window.location.hash = '#/' + id;
       });
     }
+    for(let link of thisApp.navHomeLinks) {
+      link.addEventListener('click', function(event){
+        const clickedElement = this;
+        event.preventDefault();
+        /*get page if from href attribuet*/
+        const id = clickedElement.getAttribute('href').replace('#', '');
+        /*run thisAll.activatePage with that id*/
+        thisApp.activatePage(id);
+        //change URL hash 
+        window.location.hash = '#/' + id;
+      });
+    }
+    
   },
 
   activatePage: function(pageId){
@@ -62,6 +76,9 @@ const app = {
       link.classList.toggle(classNames.nav.active, link.getAttribute('href') == '#' + pageId);
     }
     //console.log('newLink', thisApp.navLinks);
+    for(let link of thisApp.navHomeLinks) {
+      link.classList.toggle(classNames.nav.active, link.getAttribute('href') == '#' + pageId);
+    }
   },
 
   initMenu: function(){
