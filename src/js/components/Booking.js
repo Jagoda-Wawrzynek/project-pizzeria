@@ -259,7 +259,7 @@ export class Booking{
     }
     const linearGradient = colorGradient.join();
     console.log('linearGradient', linearGradient);
-    const gradient = `linear-gradient(to right, ${linearGradient})`;
+    const gradient = 'linear-gradient(to right, ' + linearGradient + ')';
     rangeSlider.style.backgroundImage =  gradient;
   }
 }
