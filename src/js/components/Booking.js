@@ -157,11 +157,11 @@ export class Booking{
       tableReservation.addEventListener('click', function(event) {
         event.preventDefault();
         if(tableReservation.classList.contains(classNames.booking.tableBooked)) {
-          alert('This table is already reserved! Choose a different table.');
+          console.log('This table is already reserved! Choose a different table.');
           
         } else {
           tableReservation.classList.add(classNames.booking.tableBooked);
-          alert('Table was booked. Thank you and see you soon!');
+          console.log('Table was booked. Thank you and see you soon!');
           thisBooking.tableId = tableReservation.getAttribute('data-table');
           //console.log('tableReservation',thisBooking.tableId);
         }
@@ -233,5 +233,33 @@ export class Booking{
       }
     }
     //console.log('AddReservation',thisBooking.booked[thisBooking.date]);
+    thisBooking.SliderColour();
+  }
+
+  SliderColour() {
+    const thisBooking = this;
+    const rangeSlider = document.querySelector('.rangeSlider');
+    
+    const colorGradient = [];
+    for (let i = 12; i < 24; i += 0.5) {
+      
+      if ((typeof thisBooking.booked[thisBooking.datePicker.value][i] == 'undefined') || thisBooking.booked[thisBooking.datePicker.value][i].length == 1) {
+        let color = 'green';
+        colorGradient.push(color);
+        console.log('thisBooking.booked[thisBooking.datePicker.value][i]', thisBooking.booked[thisBooking.datePicker.value][i]);
+      } else if (thisBooking.booked[thisBooking.datePicker.value][i].length == 2) {
+        let color = 'orange';
+        colorGradient.push(color);
+        console.log('thisBooking.booked[thisBooking.datePicker.value][i]', thisBooking.booked[thisBooking.datePicker.value][i]);
+      } else {
+        let color = 'red';
+        colorGradient.push(color);
+        console.log('thisBooking.booked[thisBooking.datePicker.value][i]', thisBooking.booked[thisBooking.datePicker.value][i]);
+      }
+    }
+    const linearGradient = colorGradient.join();
+    console.log('linearGradient', linearGradient);
+    const gradient = `linear-gradient(to right, ${linearGradient})`;
+    rangeSlider.style.backgroundImage =  gradient;
   }
 }
